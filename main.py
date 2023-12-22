@@ -15,8 +15,10 @@ i = 0
 game.set_score(0)
 posX = 0
 dangerY = [-2, -4]
-dangerSide = [Math.random_boolean(), Math.random_boolean()]
-dangerLength = [randint(0, 4), randint(0, 4)]
+dangerSide=[True, False]
+#dangerSide = [Math.random_boolean(), Math.random_boolean()]
+dangerLength=[2,4]
+#dangerLength = [randint(0, 4), randint(0, 4)]
 
 def on_forever():
     global i
