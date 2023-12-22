@@ -24,7 +24,7 @@ def on_forever():
     global i
     led.plot(posX, 4)
     while i < 2:
-        if dangerSide[i] == True:
+        if dangerSide[i]:
             j = 0
             while j < dangerLength[i]:
                 led.unplot(j, dangerY[i] - 1)
@@ -32,7 +32,7 @@ def on_forever():
                     game.game_over()
                 led.plot_brightness(j, dangerY[i], 140)
                 j += 1
-        elif dangerSide[i] == False:
+        else:
             j = 0
             while j < dangerLength[i]:
                 led.unplot(5 - j, dangerY[i] - 1)
@@ -44,9 +44,11 @@ def on_forever():
             dangerY.remove_at(i)
             dangerLength.remove_at(i)
             dangerSide.remove_at(i)
-            dangerSide.append(Math.random_boolean())
+            dangerSide.append(False)
+            #dangerSide.append(Math.random_boolean())
             dangerY.append(0)
-            dangerLength.append(randint(0, 4))
+            dangerLength.append(1)
+            #dangerLength.append(randint(0, 4))
         dangerY[i] += 1
         i += 1
 basic.forever(on_forever)
